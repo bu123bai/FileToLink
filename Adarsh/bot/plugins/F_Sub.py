@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant
-from config import FORCE_SUB
+from Adrash.vars import UPDATES_CHANNEL
 
 async def not_subscribed(_, client, message):
     if not client.force_channel:
@@ -19,8 +19,8 @@ async def not_subscribed(_, client, message):
 
 @Client.on_message(filters.private & filters.create(not_subscribed))
 async def forces_sub(client, message):
-    buttons = [[ InlineKeyboardButton(text="🔅 ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🔅", url=f"https://t.me/{FORCE_SUB}") ]]
-    text = "**𝙳𝚞𝚎 𝚃𝚘 𝙷𝚎𝚊𝚟𝚢 𝚃𝚛𝚊𝚏𝚏𝚒𝚌 𝚈𝚘𝚞 𝙷𝚊𝚟𝚎 𝚃𝚘 𝙹𝙾𝙸𝙽 𝙾𝚄𝚁 𝙲𝙰𝙷𝙽𝙽𝙴𝙻 😔. 𝙿𝙻𝙴𝙰𝚂𝙴 𝙹𝙾𝙸𝙽 𝙼𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𝚃𝙾 𝚄𝚂𝙴 𝚃𝙷𝙸𝚂 𝙱𝙾𝚃 🙏 **"
+    buttons = [[ InlineKeyboardButton(text="🔅 ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🔅", url=f"https://t.me/{UPDATES_CHANNEL}") ]]
+    text = "**𝙳𝚄𝙴 𝚃𝙾 𝙷𝙴𝙰𝚅𝚈 𝚃𝚁𝙰𝙵𝙵𝙸𝙲 𝚈𝙾𝚄 𝙷𝙰𝚅𝙴 𝚃𝙾 𝙹𝙾𝙸𝙽 𝙾𝚄𝚁 𝙲𝙰𝙷𝙽𝙽𝙴𝙻 𝚃𝙾 𝚄𝚂𝙴 𝚃𝙷𝙸𝚂 𝙱𝙾𝚃 😔🙏 **"
     try:
         user = await client.get_chat_member(client.force_channel, message.from_user.id)    
         if user.status == enums.ChatMemberStatus.BANNED:                                   
