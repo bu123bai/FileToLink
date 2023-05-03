@@ -3,7 +3,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 import datetime
-from vars import var
+from Adarsh.vars import var
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
