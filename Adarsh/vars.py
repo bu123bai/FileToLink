@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class var(object):
+class Var(object):
     MULTI_CLIENT = False
     API_ID = int(getenv('API_ID'))
     API_HASH = str(getenv('API_HASH'))
